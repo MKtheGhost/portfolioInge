@@ -1,0 +1,202 @@
+/* ------ RESET ------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------ FONT ------ */
+@font-face {
+  font-family: 'Besty';
+  src: url('fonts/Besty.woff2') format('woff2'),
+       url('fonts/Besty.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ------ NAV BAR ------ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #d9d3cb;
+}
+
+.nav-logo {
+  background-color: #3b3b3b;
+  color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 0.85rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3b3b3b;
+  font-family: sans-serif;
+  font-size: 0.85rem;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* ------ HERO / TITLE ------ */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #d9d3cb 55%, #4a3833 45%);
+  padding: 4rem 2rem 0; /* enlève le padding du bas */
+  overflow: hidden;
+}
+
+.hero-title {
+  font-family: 'Besty', cursive;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 215px;
+  line-height: 120%;
+  letter-spacing: 0.07em;
+  text-align: center;
+  color: #1a1a1a;
+  -webkit-text-stroke: 18px #1a1a1a; /* ajuste ce chiffre pour + ou - gras */
+}
+
+.hero-avatar {
+  width: 450px;
+  height: 450px;
+  margin-top: -80px;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------ PRESENTATION / ABOUT ME ------ */
+.about {
+  background-color: #d9d3cb;
+}
+
+.about-stripe {
+  height: 20px;
+  background-color: #8a8c2c;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+}
+
+.about-paper {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  min-height: 450px;
+  padding: 3rem;
+  background: url('img/paper-texture.png') center / cover no-repeat;
+}
+
+/* ------ about : left elements (débordent à gauche) ------ */
+.about-photo {
+  position: absolute;
+  top: 30px;
+  left: -80px;
+  z-index: 3;
+}
+
+.about-photo img {
+  width: 180px;
+  display: block;
+}
+
+.about-clip-top {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px !important;
+  z-index: 4;
+}
+
+.about-grid {
+  position: absolute;
+  top: 60px;
+  left: -100px;
+  z-index: 2;
+}
+
+.about-grid img {
+  width: 250px;
+  display: block;
+}
+
+.about-ticket {
+  position: absolute;
+  bottom: 40px;
+  left: -120px;
+  z-index: 1;
+}
+
+.about-ticket img {
+  width: 110px;
+}
+
+/* ------ about : right content ------ */
+.about-title {
+  font-family: 'Besty', cursive;
+  font-weight: 900;
+  font-size: 64px;
+  color: #1a1a1a;
+  margin-left: 220px;
+  margin-top: 1rem;
+}
+
+.about-text {
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3b3b3b;
+  margin-left: 220px;
+  margin-top: 1rem;
+}
+
+/* ------ about : right decorations (débordent à droite) ------ */
+.about-envelope {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.about-envelope img {
+  width: 100px;
+}
+
+.about-clip-right {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.about-clip-right img {
+  width: 70px;
+}
