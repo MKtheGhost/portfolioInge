@@ -13,38 +13,38 @@
   font-weight: normal;
   font-style: normal;
 }
-
+ 
 /* ------ NAV BAR ------ */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.5rem;
-  padding: 0.75rem 2rem;
+  gap: 1.5em;
+  padding: 0.75em 2em;
   background-color: #d9d3cb;
 }
 
 .nav-logo {
-  background-color: #3b3b3b;
+  background-color: #92a0a1;
   color: #fff;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.2em 0.6em;
+  border-radius: 0.25em;
   text-decoration: none;
   font-family: sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.85em;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 1.5em;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #3b3b3b;
   font-family: sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.85em;
 }
 
 .nav-links a:hover {
@@ -53,13 +53,14 @@
 
 /* ------ HERO / TITLE ------ */
 .hero {
+    min-height: 40em; 
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, #d9d3cb 55%, #4a3833 45%);
-  padding: 4rem 2rem 0; /* enlève le padding du bas */
+  padding: 4em 2em 0;
   overflow: hidden;
 }
 
@@ -67,18 +68,18 @@
   font-family: 'Besty', cursive;
   font-weight: 900;
   font-style: normal;
-  font-size: 215px;
+  font-size: 11.5em;
   line-height: 120%;
   letter-spacing: 0.07em;
   text-align: center;
   color: #1a1a1a;
-  -webkit-text-stroke: 18px #1a1a1a; /* ajuste ce chiffre pour + ou - gras */
+  -webkit-text-stroke: 0.1em #1a1a1a; /* relatif à font-size, ajuste si besoin */
 }
 
 .hero-avatar {
-  width: 450px;
-  height: 450px;
-  margin-top: -80px;
+  width: 20.625em;
+  height: 20.625em;
+  margin-top: -5em;
 }
 
 .hero-avatar img {
@@ -93,110 +94,181 @@
 }
 
 .about-stripe {
-  height: 20px;
+  height: 1.25em;
   background-color: #8a8c2c;
 }
 
 .about-container {
   display: flex;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 3em 2em;
 }
 
 .about-paper {
   position: relative;
-  max-width: 900px;
+  max-width: 56.25em;
   width: 100%;
-  min-height: 450px;
-  padding: 3rem;
+  min-height: 28.125em;
+  padding: 3em;
   background: url('img/paper-texture.png') center / cover no-repeat;
 }
 
 /* ------ about : left elements (débordent à gauche) ------ */
 .about-photo {
   position: absolute;
-  top: 30px;
-  left: -80px;
+  top: 1.875em;
+  left: -5em;
   z-index: 3;
 }
 
 .about-photo img {
-  width: 180px;
+  width: 11.25em;
   display: block;
 }
 
 .about-clip-top {
   position: absolute;
-  top: -25px;
+  top: -1.5625em;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px !important;
+  width: 2.5em !important;
   z-index: 4;
 }
 
 .about-grid {
   position: absolute;
-  top: 60px;
-  left: -100px;
+  top: 3.75em;
+  left: -6.25em;
   z-index: 2;
 }
 
 .about-grid img {
-  width: 250px;
+  width: 15.625em;
   display: block;
 }
 
 .about-ticket {
   position: absolute;
-  bottom: 40px;
-  left: -120px;
+  bottom: 2.5em;
+  left: -7.5em;
   z-index: 1;
 }
 
 .about-ticket img {
-  width: 110px;
+  width: 6.875em;
 }
 
 /* ------ about : right content ------ */
 .about-title {
   font-family: 'Besty', cursive;
   font-weight: 900;
-  font-size: 64px;
+  font-size: 4em;
   color: #1a1a1a;
-  margin-left: 220px;
-  margin-top: 1rem;
+  margin-left: 13.75em;
+  margin-top: 1em;
 }
 
 .about-text {
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6;
   color: #3b3b3b;
-  margin-left: 220px;
-  margin-top: 1rem;
+  margin-left: 13.75em;
+  margin-top: 1em;
 }
 
-/* ------ about : right decorations (débordent à droite) ------ */
+/* ------ about : right decorations ------ */
 .about-envelope {
   position: absolute;
-  top: 50%;
-  right: -30px;
-  transform: translateY(-50%);
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
 }
 
 .about-envelope img {
-  width: 100px;
+  width: 90.75em;
 }
 
 .about-clip-right {
   position: absolute;
   top: 50%;
-  right: -40px;
+  right: -2.5em;
   transform: translateY(-50%);
   z-index: 3;
 }
 
 .about-clip-right img {
-  width: 70px;
+  width: 4.375em;
+}
+
+/* ------ SKILLS / MES COMPETENCES ------ */
+.skills {
+  position: relative;
+  background-color: #e8e5dd;
+  padding: 4em 5em;
+  min-height: 50em;
+}
+
+.skills-header {
+  max-width: 30em;
+}
+
+.skills-title {
+  font-family: 'Besty', cursive;
+  font-weight: 900;
+  font-size: 2.5em;
+  color: #1a1a1a;
+  -webkit-text-stroke: 0.05em #1a1a1a;
+}
+
+.skills-text {
+  font-family: sans-serif;
+  font-size: 0.9em;
+  color: #3b3b3b;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+.skills-polaroids {
+  position: relative;
+  margin-top: 2em;
+  height: 40em;
+}
+
+.polaroid {
+  position: absolute;
+  width: 18em;
+  background-color: #fff;
+  padding: 1em 1em 3em;
+  box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.15);
+}
+
+.polaroid img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: #000;
+}
+
+.polaroid-1 {
+  top: 10em;
+  left: 5em;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+
+.polaroid-2 {
+  top: 0;
+  left: 28em;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+
+.polaroid-3 {
+  top: 18em;
+  left: 49em;
+  transform: rotate(-3deg);
+  z-index: 3;
 }
