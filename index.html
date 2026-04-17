@@ -24,7 +24,7 @@
   <section class="hero" id="title">
     <h1 class="hero-title">PORTFOLIO</h1>
     <div class="hero-avatar">
-      <img src="ressources/circle photo.png" alt="Photo de profil">
+      <img src="ressources/mk_rond.png" alt="Photo de profil">
     </div>
   </section>
 
@@ -34,37 +34,96 @@
     <div class="about-container">
       <div class="about-paper">
 
-        <!-- décoration centrale -->
-        <div class="about-envelope">
-          <img src="ressources/about_me.png" alt="">
-        </div>
-        <div class="about-clip-right">
-          <img src="img/clip-right.png" alt="">
+        <!-- fond pochette (titre + décos sont dedans) -->
+        <img src="ressources/about_me.png" alt="" class="about-bg">
+
+        <!-- contenu par-dessus le fond -->
+        <div class="about-main">
+          <div class="about-block">
+            <div class="about-block-text">
+              <p class="about-text">Bonjour et bienvenue ! Je m'appelle Minh Khua, actuellement informaticienne, et bientôt ingénieure en informatique et entrepreneuse à mon compte.</p>
+              <p class="about-text">Je suis guidée par une puissante motivation dans la vie : celle de la contribution sociétale. Pour moi, l'informatique et les connexions scientifiques en général doivent être utilisées dans le but d'améliorer la condition humaine et l'expérience de vie.</p>
+              <p class="about-text">Portée par cette vision, je suis convaincue que l'utilisation actuelle de l'informatique est erronée et ne correspond pas à ma conception d'un usage sain des technologies numériques.</p>
+              <p class="about-text">C'est pourquoi j'ai décidé de prendre la responsabilité de concrétiser moi-même cette vision. Vous trouverez ci-dessous une présentation de mon plan visant à vous en démontrer la pertinence.</p>
+            </div>
+          </div>
         </div>
 
       </div>
+    </div>
+
+    <!-- ------ MA VISION (en dehors de la pochette) ------ -->
+    <div class="vision">
+
+      <div class="vision-block">
+        <div class="vision-text">
+          <h3 class="vision-title">MA VISION</h3>
+          <p class="about-text">Depuis mes jeunes années, j'ai toujours eu une forte affection pour les technologies, comme les consoles de jeux Nintendo ou les walkmans. Les utiliser était une expérience inoubliable et de véritables moments de connexion avec mes proches.</p>
+        </div>
+        <div class="vision-cadre vision-cadre-right">
+          <div class="cadre-wrapper">
+            <img src="ressources/cadre1.png" alt="" class="cadre-frame">
+            <div class="cadre-photos">
+              <img src="ressources/photo1.png" alt="" class="cadre-photo cadre-photo-active">
+              <img src="ressources/photo2.png" alt="" class="cadre-photo">
+              <img src="ressources/photo3.png" alt="" class="cadre-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-block vision-block-reverse">
+        <div class="vision-text">
+          <p class="about-text">Ce sont ces expériences qui ont forgé ma vision de l'informatique et de l'ingénierie technologique : des outils qui contribuent à l'expérience humaine et rendent les moments d'utilisation mémorables. Je suis d'avis que la technologie doit servir l'humain, et non supprimer le plaisir de son utilisation ni les liens humains qui l'accompagnent.</p>
+        </div>
+        <div class="vision-cadre vision-cadre-left">
+          <div class="cadre-wrapper">
+            <img src="ressources/cadre2.png" alt="" class="cadre-frame">
+            <div class="cadre-photos">
+              <img src="ressources/photo2.png" alt="" class="cadre-photo cadre-photo-active">
+              <img src="ressources/photo3.png" alt="" class="cadre-photo">
+              <img src="ressources/photo1.png" alt="" class="cadre-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vision-block">
+        <div class="vision-text">
+          <p class="about-text">De ce fait, je considère l'informatique non seulement comme une filière scientifique, mais aussi comme un domaine éthique et humanitaire. Concevoir des outils utiles à tous implique de prendre en compte les contraintes morales qui se soulèvent et de trouver un juste équilibre entre l'utilité et les effets potentiellement intrusifs ou dérangeants.</p>
+          <p class="about-text">À la recherche de cet équilibre, que j'estime être au cœur de mon métier, je me suis tracé un chemin qui me mène vers la réalisation de cette vision et auquel je m'engage pleinement. C'est cette conviction qui m'amène aujourd'hui devant vous.</p>
+        </div>
+        <div class="vision-cadre vision-cadre-right">
+          <div class="cadre-wrapper">
+            <img src="ressources/cadre3.png" alt="" class="cadre-frame">
+            <div class="cadre-photos">
+              <img src="ressources/photo3.png" alt="" class="cadre-photo cadre-photo-active">
+              <img src="ressources/photo1.png" alt="" class="cadre-photo">
+              <img src="ressources/photo2.png" alt="" class="cadre-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ------ SKILLS / MES COMPETENCES ------ -->
-  <section class="skills" id="skills">
-    <div class="skills-header">
-      <h2 class="skills-title">MES COMPETENCES</h2>
-      <p class="skills-text">asdasdasdadadadadad</p>
-    </div>
+  <script>
+    // ------ ANIMATION POLAROID DEVELOPMENT ------
+    document.querySelectorAll('.cadre-photos').forEach(container => {
+      const photos = container.querySelectorAll('.cadre-photo');
+      let current = 0;
 
-    <div class="skills-polaroids">
-      <div class="polaroid polaroid-1">
-        <img src="ressources/skill1.png" alt="">
-      </div>
-      <div class="polaroid polaroid-2">
-        <img src="ressources/skill2.png" alt="">
-      </div>
-      <div class="polaroid polaroid-3">
-        <img src="ressources/skill3.png" alt="">
-      </div>
-    </div>
-  </section>
+      setInterval(() => {
+        // photo actuelle disparaît
+        photos[current].classList.remove('cadre-photo-active');
+
+        // passe à la suivante qui va se "développer"
+        current = (current + 1) % photos.length;
+        photos[current].classList.add('cadre-photo-active');
+      }, 4000); // 4s pour laisser le temps au développement (3s) + pause
+    });
+  </script>
 
 </body>
 </html>

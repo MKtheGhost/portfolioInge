@@ -13,7 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
- 
+
 /* ------ NAV BAR ------ */
 .navbar {
   display: flex;
@@ -53,7 +53,7 @@
 
 /* ------ HERO / TITLE ------ */
 .hero {
-    min-height: 40em; 
+  min-height: 40em;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -73,12 +73,12 @@
   letter-spacing: 0.07em;
   text-align: center;
   color: #1a1a1a;
-  -webkit-text-stroke: 0.1em #1a1a1a; /* relatif à font-size, ajuste si besoin */
+  -webkit-text-stroke: 0.1em #1a1a1a;
 }
 
 .hero-avatar {
-  width: 20.625em;
-  height: 20.625em;
+  width: 40.625em;
+  height: 40.625em;
   margin-top: -5em;
 }
 
@@ -101,174 +101,203 @@
 .about-container {
   display: flex;
   justify-content: center;
-  padding: 3em 2em;
+  padding: 3em 2em 0;
 }
 
+/* ------ about : pochette ------ */
 .about-paper {
   position: relative;
-  max-width: 56.25em;
+  max-width: 55em;
   width: 100%;
-  min-height: 28.125em;
-  padding: 3em;
-  background: url('img/paper-texture.png') center / cover no-repeat;
 }
 
-/* ------ about : left elements (débordent à gauche) ------ */
-.about-photo {
+.about-bg {
+  width: 100%;
+  display: block;
+}
+
+/* ------ about : texte par-dessus la pochette ------ */
+.about-main {
   position: absolute;
-  top: 1.875em;
-  left: -5em;
+  top: 15%;
+  left: 35%;
+  right: 5%;
   z-index: 3;
-}
-
-.about-photo img {
-  width: 11.25em;
-  display: block;
-}
-
-.about-clip-top {
-  position: absolute;
-  top: -1.5625em;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2.5em !important;
-  z-index: 4;
-}
-
-.about-grid {
-  position: absolute;
-  top: 3.75em;
-  left: -6.25em;
-  z-index: 2;
-}
-
-.about-grid img {
-  width: 15.625em;
-  display: block;
-}
-
-.about-ticket {
-  position: absolute;
-  bottom: 2.5em;
-  left: -7.5em;
-  z-index: 1;
-}
-
-.about-ticket img {
-  width: 6.875em;
-}
-
-/* ------ about : right content ------ */
-.about-title {
-  font-family: 'Besty', cursive;
-  font-weight: 900;
-  font-size: 4em;
-  color: #1a1a1a;
-  margin-left: 13.75em;
-  margin-top: 1em;
 }
 
 .about-text {
   font-family: sans-serif;
-  font-size: 1em;
-  line-height: 1.6;
+  font-size: 0.75em;
+  line-height: 1.7;
   color: #3b3b3b;
-  margin-left: 13.75em;
-  margin-top: 1em;
+  margin-bottom: 0.8em;
 }
 
-/* ------ about : right decorations ------ */
-.about-envelope {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+/* ------ MA VISION (en dehors de la pochette) ------ */
+.vision {
+  max-width: 55em;
+  margin: 0 auto;
+  padding: 3em 2em 4em;
 }
 
-.about-envelope img {
-  width: 90.75em;
-}
-
-.about-clip-right {
-  position: absolute;
-  top: 50%;
-  right: -2.5em;
-  transform: translateY(-50%);
-  z-index: 3;
-}
-
-.about-clip-right img {
-  width: 4.375em;
-}
-
-/* ------ SKILLS / MES COMPETENCES ------ */
-.skills {
-  position: relative;
-  background-color: #e8e5dd;
-  padding: 4em 5em;
-  min-height: 50em;
-}
-
-.skills-header {
-  max-width: 30em;
-}
-
-.skills-title {
+.vision-title {
   font-family: 'Besty', cursive;
   font-weight: 900;
   font-size: 2.5em;
   color: #1a1a1a;
-  -webkit-text-stroke: 0.05em #1a1a1a;
+  margin-bottom: 0.5em;
 }
 
-.skills-text {
-  font-family: sans-serif;
-  font-size: 0.9em;
-  color: #3b3b3b;
-  margin-top: 1em;
-  margin-left: 1em;
+.vision-block {
+  display: flex;
+  gap: 2em;
+  align-items: flex-start;
+  margin-bottom: 2.5em;
 }
 
-.skills-polaroids {
+.vision-block-reverse {
+  flex-direction: row-reverse;
+}
+
+.vision-text {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ------ vision : cadres photos + animation polaroid development ------ */
+.vision-cadre {
+  flex-shrink: 0;
+  width: 16em;
+}
+
+.cadre-wrapper {
   position: relative;
-  margin-top: 2em;
-  height: 40em;
+  width: 100%;
 }
 
-.polaroid {
-  position: absolute;
-  width: 18em;
-  background-color: #fff;
-  padding: 1em 1em 3em;
-  box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.15);
-}
-
-.polaroid img {
+.cadre-frame {
   width: 100%;
   display: block;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  background-color: #000;
-}
-
-.polaroid-1 {
-  top: 10em;
-  left: 5em;
-  transform: rotate(-8deg);
-  z-index: 2;
-}
-
-.polaroid-2 {
-  top: 0;
-  left: 28em;
-  transform: rotate(4deg);
+  position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
-.polaroid-3 {
-  top: 18em;
-  left: 49em;
-  transform: rotate(-3deg);
-  z-index: 3;
+/* fenêtre photo DANS le cadre — ajuste ces % selon tes cadres */
+.cadre-photos {
+  position: absolute;
+  top: 7%;
+  left: 7%;
+  width: 86%;
+  height: 75%;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cadre-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* la photo active déclenche l'animation polaroid */
+.cadre-photo-active {
+  opacity: 1;
+  animation: polaroid-develop 3s ease-out forwards;
+}
+
+@keyframes polaroid-develop {
+  0% {
+    filter: blur(1.5em) sepia(1) saturate(0) brightness(0.4) contrast(0.5);
+  }
+  15% {
+    filter: blur(1.2em) sepia(1) saturate(0.1) brightness(0.55) contrast(0.65);
+  }
+  35% {
+    filter: blur(0.8em) sepia(0.9) saturate(0.3) brightness(0.75) contrast(0.8);
+  }
+  55% {
+    filter: blur(0.4em) sepia(0.6) saturate(0.55) brightness(0.9) contrast(0.9);
+  }
+  75% {
+    filter: blur(0.15em) sepia(0.3) saturate(0.8) brightness(1) contrast(1);
+  }
+  100% {
+    filter: blur(0) sepia(0) saturate(1) brightness(1) contrast(1);
+  }
+}
+
+.vision-cadre-right .cadre-wrapper {
+  transform: rotate(4deg);
+}
+
+.vision-cadre-left .cadre-wrapper {
+  transform: rotate(-5deg);
+}
+
+/* ------ RESPONSIVE ------ */
+@media (max-width: 60em) {
+  .hero-title {
+    font-size: 6em;
+  }
+
+  .hero-avatar {
+    width: 14em;
+    height: 14em;
+    margin-top: -3em;
+  }
+
+  .about-main {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    padding: 2em;
+  }
+
+  .vision-block,
+  .vision-block-reverse {
+    flex-direction: column;
+  }
+
+  .vision-cadre {
+    width: 100%;
+    max-width: 16em;
+    align-self: center;
+  }
+}
+
+@media (max-width: 35em) {
+  .navbar {
+    gap: 0.8em;
+    padding: 0.5em 1em;
+  }
+
+  .nav-links a {
+    font-size: 0.7em;
+  }
+
+  .hero-title {
+    font-size: 3.5em;
+    -webkit-text-stroke: 0.05em #1a1a1a;
+  }
+
+  .hero-avatar {
+    width: 20em;
+    height: 20em;
+    margin-top: -2em;
+  }
+
+  .about-text {
+    font-size: 0.7em;
+  }
+
+  .vision-title {
+    font-size: 1.8em;
+  }
 }
