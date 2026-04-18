@@ -300,6 +300,21 @@
   </div>
   <script>
     (function () {
+      var revealTargets = document.querySelectorAll(
+        ".vision-row, .parcours-card, .project-folder, .section-title, .about-copy, .about-tags, .site-footer__headline, .site-footer__cta"
+      );
+      revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
+        });
+      }, { threshold: 0.18 });
+
+      revealTargets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    (function () {
       var sections = document.querySelectorAll("#titre, #about, #vision, #parcours, #projets, #cv");
       var links = document.querySelectorAll(".site-nav__pill");
       if (!sections.length || !links.length) return;
