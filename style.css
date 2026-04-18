@@ -483,12 +483,49 @@ img {
 .section-parcours {
   position: relative;
   background: var(--parcours-bg);
-  padding: 3rem 1.25rem 4rem;
+  padding: 3rem clamp(0.75rem, 3vw, 1.5rem) 4rem;
+  overflow-x: clip;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  box-sizing: border-box;
 }
 
 .section-parcours__inner {
-  max-width: 70rem;
-  margin: 0 auto;
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Width-only scale when the column is narrower than the desktop layout (keeps labels + body copy on-screen; no dvh shrink). */
+.parcours-scale {
+  width: 100%;
+  transform-origin: top center;
+}
+
+@media (min-width: 73rem) {
+  .parcours-scale {
+    zoom: 1;
+  }
+}
+
+@media (max-width: 72rem) {
+  .parcours-scale {
+    --parcours-fit: max(0.58, min(1, calc((100% - 0.5rem) / 64rem)));
+    zoom: var(--parcours-fit);
+  }
+
+  @supports not (zoom: 1) {
+    .parcours-scale {
+      zoom: unset;
+      transform: scale(var(--parcours-fit));
+      width: calc(100% / var(--parcours-fit));
+      max-width: none;
+      margin-inline: auto;
+      margin-bottom: calc((1 - var(--parcours-fit)) * -28rem);
+    }
+  }
 }
 
 /* Figma-style roadmap: SVG paths from timeline_graphic, layered behind the 2×2 cards */
@@ -500,8 +537,8 @@ img {
 /* Shared box for stretched paths + perfectly round HTML dots (same viewBox mapping) */
 .parcours-roadmap__track {
   position: relative;
-  width: 92%;
-  max-width: 62rem;
+  width: 100%;
+  max-width: none;
   margin-inline: auto;
   aspect-ratio: 1122 / 430;
 }
@@ -513,10 +550,6 @@ img {
   width: 100%;
   height: 100%;
   overflow: visible;
-}
-
-.parcours-roadmap__svg path {
-  vector-effect: non-scaling-stroke;
 }
 
 .parcours-roadmap__dots {
@@ -558,7 +591,7 @@ img {
   top: 0;
   margin: 0;
   width: max-content;
-  max-width: min(12rem, 42vw);
+  max-width: min(15rem, 92%);
   text-align: center;
   white-space: normal;
   z-index: 0;
@@ -594,6 +627,9 @@ img {
     --parcours-roadmap-pad-inline: clamp(0.25rem, 1.5vw, 1.25rem);
     min-height: clamp(17rem, 42vw, 26rem);
     padding-inline: var(--parcours-roadmap-pad-inline);
+    /* Narrower than full inner width; track + grid scale together so dots stay on columns */
+    max-width: min(50rem, 92%);
+    margin-inline: auto;
     /* Dot x = 5% + 90% * (vx / 1122); column centers match Lycée / BUT / Alternance anchors */
     container-type: inline-size;
     container-name: parcours;
@@ -601,9 +637,9 @@ img {
 
   .parcours-roadmap__track {
     position: absolute;
-    left: 5%;
+    left: 0;
     top: 4.5%;
-    width: 90%;
+    width: 100%;
     height: 88%;
     max-width: none;
     margin-inline: 0;
@@ -655,8 +691,22 @@ img {
     padding: 0;
     /* Pull up into grid row-gap so the 6th paragraph isn’t pushed down away from the École dot */
     margin-top: calc(-1 * var(--parcours-row-gap));
-    /* École dot (vx 1120.5) is right of Alternance (938.03); shift copy to that anchor */
-    transform: translateX(calc(0.9 * (1120.5 - 938.03) / 1122 * 100cqi));
+  }
+
+  /*
+   * Center copy under each dot: dot x as vx/1122 of roadmap width vs column mid from fr split
+   * (404+202+394). 100cqi = roadmap inline size (container on .parcours-roadmap).
+   */
+  .parcours-grid .parcours-card--col-lycee p {
+    transform: translateX(calc((189.44 / 1122 - 202 / 1000) * 100cqi));
+  }
+
+  .parcours-grid .parcours-card--col-but p {
+    transform: translateX(calc((566.47 / 1122 - 505 / 1000) * 100cqi));
+  }
+
+  .parcours-grid .parcours-card--col-alt p {
+    transform: translateX(calc((938.03 / 1122 - 803 / 1000) * 100cqi));
   }
 
   /* Full column width so margin-inline: auto on <p> matches dot-centered columns */
@@ -696,6 +746,7 @@ img {
     margin-bottom: 0;
     margin-inline: auto;
     padding: 0;
+    transform: translateX(calc((1120.5 / 1122 - 803 / 1000) * 100cqi));
   }
 }
 
@@ -760,20 +811,41 @@ img {
 }
 
 @media (max-width: 40rem) {
+  .section-parcours {
+    padding: clamp(1.25rem, 4vw, 2rem) clamp(0.75rem, 3vw, 1.15rem) clamp(1.75rem, 5vw, 2.5rem);
+  }
+
   .parcours-roadmap {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: clamp(0.75rem, 2.5vw, 1.25rem);
   }
 
   .parcours-roadmap__track {
     flex-shrink: 0;
+    width: min(100%, calc(32svh * 1122 / 430));
+    max-width: 100%;
+    max-height: min(32svh, 11.5rem);
+    margin-inline: auto;
+    aspect-ratio: 1122 / 430;
+    height: auto;
   }
 
   .parcours-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     min-height: 0;
+    gap: clamp(0.85rem, 3vw, 1.25rem);
+  }
+
+  .parcours-card {
+    font-size: clamp(0.875rem, 3.4vw, 1rem);
+    line-height: 1.65;
+  }
+
+  .parcours-card__pill {
+    font-size: clamp(0.9rem, 3.6vw, 1.1rem);
+    padding: 0.28rem 0.85rem;
   }
 
   .parcours-card--col-lycee,
@@ -800,12 +872,73 @@ img {
   }
 }
 
+/* Tablet / narrow desktop: shorter roadmap shell + tighter copy so the block fits the viewport better */
+@media (min-width: 41rem) and (max-width: 56rem) {
+  .section-parcours {
+    padding: clamp(1.5rem, 3.5vw, 2.5rem) clamp(0.75rem, 2.5vw, 1.25rem) clamp(2rem, 4vw, 3rem);
+  }
+
+  .parcours-roadmap {
+    min-height: clamp(11rem, 32vw, 18rem);
+    max-width: min(44rem, 94%);
+  }
+
+  .parcours-grid {
+    padding-block: clamp(0.35rem, 1.2vw, 1rem) clamp(0.5rem, 1.5vw, 1.35rem);
+    --parcours-row-gap: clamp(0.45rem, 1.2vw, 0.85rem);
+    row-gap: var(--parcours-row-gap);
+  }
+
+  .parcours-grid .parcours-card--col-lycee p,
+  .parcours-grid .parcours-card--col-alt p:first-of-type {
+    margin-top: clamp(1.1rem, 3vw, 2.25rem);
+  }
+
+  .parcours-card {
+    font-size: clamp(0.9rem, 1.65vw, 1rem);
+  }
+
+  .parcours-card__pill {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    padding: 0.3rem 1rem;
+  }
+}
+
+/* Short viewports: keep the serpentine layout but compress vertical rhythm */
+@media (min-width: 41rem) and (max-height: 720px) {
+  .section-parcours {
+    padding-top: clamp(0.85rem, 2.2vh, 1.5rem);
+    padding-bottom: clamp(1rem, 2.8vh, 2rem);
+  }
+
+  .parcours-roadmap {
+    min-height: min(15rem, 36svh);
+  }
+
+  .parcours-grid {
+    padding-block: clamp(0.25rem, 0.8vh, 0.75rem) clamp(0.35rem, 1vh, 1rem);
+    --parcours-row-gap: clamp(0.35rem, 1vh, 0.65rem);
+    row-gap: var(--parcours-row-gap);
+  }
+
+  .parcours-grid .parcours-card--col-lycee p,
+  .parcours-grid .parcours-card--col-alt p:first-of-type {
+    margin-top: clamp(0.85rem, 2.2vh, 1.75rem);
+  }
+
+  .parcours-card {
+    line-height: 1.55;
+  }
+}
+
 /* ------ PROJECTS ------ */
 .section-projects {
   position: relative;
   /* Match .page cream — avoid an extra opaque band over Parcours if sections ever overlap */
   background: transparent;
-  padding: 2.5rem 1rem 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
 }
 
 .section-projects__inner {
@@ -827,6 +960,7 @@ img {
   max-width: 78.75rem;
   margin-inline: auto;
   padding-top: clamp(1rem, 2.5vw, 1.75rem);
+<<<<<<< HEAD
   transition: transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.48s ease;
 }
@@ -924,6 +1058,24 @@ img {
   color: var(--ink);
   min-width: 4rem;
   text-align: center;
+=======
+  --folder-aspect-h: 879;
+  --folder-aspect-w: 1260;
+  /* Used with padding-top so content lines up like the old flex “below image + pull up” layout */
+  --folder-surface-pull: 0.56;
+}
+
+.project-folder--freelance {
+  --folder-surface-pull: 0.63;
+}
+
+.project-folder--neo {
+  --folder-aspect-h: 878;
+}
+
+.project-folder--ia {
+  --folder-aspect-h: 888;
+>>>>>>> 0fd8a5cc7176a1d6cf29792457a8a1826d84f6ae
 }
 
 .project-folder__wrap {
@@ -931,12 +1083,32 @@ img {
   width: 100%;
   max-width: 78.75rem;
   margin-inline: auto;
+  container-type: inline-size;
+  container-name: project-folder;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: visible;
+}
+
+/* Grows with tall content so the folder art stretches instead of clipping */
+.project-folder__shape-shell {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  min-height: calc(100cqi * var(--folder-aspect-h) / var(--folder-aspect-w));
+  align-self: stretch;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-folder__shape {
   display: block;
+  flex: 1 1 auto;
   width: 100%;
-  height: auto;
+  min-height: 0;
+  object-fit: fill;
+  object-position: top center;
 }
 
 .project-folder__tab {
@@ -973,24 +1145,34 @@ img {
 }
 
 .project-folder__surface {
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  top: 12%;
-  bottom: 6%;
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+  align-self: start;
+  /* Grid shares top with SVG; offset = former (image height − overlap) + inner air */
+  width: 92%;
+  max-width: 100%;
+  margin-inline: auto;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(0.65rem, 1.5vw, 1rem);
-  min-height: 0;
-  padding-top: clamp(0.65rem, 1.8vw, 1.35rem);
+  padding-top: calc(
+    (100cqi * var(--folder-aspect-h) / var(--folder-aspect-w))
+    - (var(--folder-surface-pull) * 100cqi)
+    + clamp(0.45rem, 1.4vw, 1.05rem)
+  );
+  padding-bottom: 0.25rem;
+  overflow: visible;
 }
 
 .project-folder__columns {
   display: grid;
   gap: clamp(1rem, 2.2vw, 2rem);
   align-items: start;
-  flex: 1;
-  min-height: 0;
+  flex: 0 1 auto;
+  min-height: min-content;
 }
 
 .project-folder__columns--copy-media {
@@ -1159,19 +1341,15 @@ img {
   }
 
   .project-folder__surface {
-    position: static;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
-    margin: -12vw auto 0;
-    padding: clamp(0.75rem, 2.2vw, 1.35rem) 0.75rem 1.5rem;
-    max-width: 40rem;
-  }
-
-  .project-folder__wrap {
-    display: flex;
-    flex-direction: column;
+    width: min(40rem, 94%);
+    margin-top: 0;
+    padding-top: calc(
+      (100cqi * var(--folder-aspect-h) / var(--folder-aspect-w))
+      - (var(--folder-surface-pull) * 100cqi)
+      + clamp(0.75rem, 2.2vw, 1.35rem)
+    );
+    padding-inline: 0.75rem;
+    padding-bottom: 1.5rem;
   }
 
   .project-folder__columns--copy-media,
@@ -1186,7 +1364,13 @@ img {
 
 @media (max-width: 36rem) {
   .project-folder__surface {
-    margin-top: -8vw;
+    margin-top: 0;
+    width: min(40rem, 96%);
+    padding-top: calc(
+      (100cqi * var(--folder-aspect-h) / var(--folder-aspect-w))
+      - (var(--folder-surface-pull) * 100cqi)
+      + clamp(0.65rem, 2.8vw, 1.15rem)
+    );
   }
 }
 
