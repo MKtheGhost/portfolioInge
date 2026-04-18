@@ -166,7 +166,8 @@
     <section class="section-projects" id="projets" aria-labelledby="projects-heading">
       <div class="section-projects__inner">
         <h2 class="section-title section-title--center" id="projects-heading">mes projets</h2>
-        <div class="projects-folder-list">
+        <div class="projects-deck-wrap">
+        <div class="projects-deck" aria-live="polite">
           <!-- Figma node 139:101 — Freelance -->
           <article class="project-folder project-folder--freelance">
             <div class="project-folder__wrap">
@@ -282,6 +283,19 @@
             </div>
           </article>
         </div>
+        </div><!-- /.projects-deck -->
+        <nav class="projects-deck__nav" aria-label="Navigation projets">
+          <button class="projects-deck__btn" id="deck-prev" aria-label="Projet précédent">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="projects-deck__counter">
+            <span class="projects-deck__current">1</span><span aria-hidden="true"> / </span><span class="projects-deck__total">3</span>
+          </span>
+          <button class="projects-deck__btn" id="deck-next" aria-label="Projet suivant">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </nav>
+        </div><!-- /.projects-deck-wrap -->
       </div>
     </section>
 
@@ -293,7 +307,7 @@
   <script>
     (function () {
       var revealTargets = document.querySelectorAll(
-        ".vision-row, .parcours-card, .project-folder, .section-title, .about-copy, .about-tags, .site-footer__headline, .site-footer__cta"
+        ".vision-row, .parcours-card, .projects-deck-wrap, .section-title, .about-copy, .about-tags, .site-footer__headline, .site-footer__cta"
       );
       revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -304,6 +318,67 @@
       }, { threshold: 0.18 });
 
       revealTargets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    (function () {
+      var deckEl = document.querySelector('.projects-deck');
+      if (!deckEl) return;
+
+      var cards = Array.from(deckEl.querySelectorAll('.project-folder'));
+      var n = cards.length;
+      var cur = 0;
+      var busy = false;
+      var DUR = 460;
+
+      function render() {
+        cards.forEach(function (card, i) {
+          var pos = (i - cur + n) % n;
+          card.dataset.deckPos = pos < 3 ? String(pos) : 'hidden';
+        });
+        var counter = document.querySelector('.projects-deck__current');
+        if (counter) counter.textContent = String(cur + 1);
+      }
+
+      function goNext() {
+        if (busy) return;
+        busy = true;
+        var leaving = cards[cur];
+        leaving.dataset.deckPos = 'exit';
+        cur = (cur + 1) % n;
+        render();
+        setTimeout(function () {
+          leaving.style.transition = 'none';
+          leaving.dataset.deckPos = 'hidden';
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              leaving.style.transition = '';
+              busy = false;
+            });
+          });
+        }, DUR);
+      }
+
+      function goPrev() {
+        if (busy) return;
+        busy = true;
+        var newCur = (cur - 1 + n) % n;
+        var incoming = cards[newCur];
+        incoming.style.transition = 'none';
+        incoming.dataset.deckPos = 'enter';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            incoming.style.transition = '';
+            cur = newCur;
+            render();
+            setTimeout(function () { busy = false; }, DUR);
+          });
+        });
+      }
+
+      document.getElementById('deck-prev').addEventListener('click', goPrev);
+      document.getElementById('deck-next').addEventListener('click', goNext);
+
+      render();
     })();
 
     (function () {

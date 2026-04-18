@@ -813,11 +813,12 @@ img {
   margin: 0 auto;
 }
 
-.projects-folder-list {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2.5rem, 6vw, 3.75rem);
+.projects-deck-wrap {
   margin-top: 2rem;
+}
+
+.projects-deck {
+  position: relative;
 }
 
 /* Figma nodes 139:101 / 139:103 / 139:102 — folder SVG + overlay content */
@@ -826,6 +827,103 @@ img {
   max-width: 78.75rem;
   margin-inline: auto;
   padding-top: clamp(1rem, 2.5vw, 1.75rem);
+  transition: transform 0.48s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.48s ease;
+}
+
+/* ---- Deck card positions ---- */
+.project-folder[data-deck-pos="0"] {
+  position: relative;
+  z-index: 10;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.project-folder[data-deck-pos="1"] {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 9;
+  transform: translateX(2.5%) translateY(1.5%) scale(0.97) rotate(1.2deg);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.project-folder[data-deck-pos="2"] {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 8;
+  transform: translateX(5%) translateY(3%) scale(0.94) rotate(2.4deg);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.project-folder[data-deck-pos="hidden"] {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 7;
+  transform: translateX(5%) translateY(3%) scale(0.94) rotate(2.4deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-folder[data-deck-pos="exit"] {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 11;
+  transform: translateX(-115%) rotate(-7deg) scale(0.92);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-folder[data-deck-pos="enter"] {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 11;
+  transform: translateX(115%) rotate(7deg) scale(0.92);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Deck nav ---- */
+.projects-deck__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.projects-deck__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--brown);
+  color: var(--cream);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.projects-deck__btn:hover {
+  opacity: 0.75;
+  transform: scale(1.08);
+}
+
+.projects-deck__btn:active {
+  transform: scale(0.95);
+}
+
+.projects-deck__counter {
+  font-family: "Besty", cursive;
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  min-width: 4rem;
+  text-align: center;
 }
 
 .project-folder__wrap {
