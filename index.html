@@ -3,127 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Portfolio — Minh Khue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__pill site-nav__pill--active" href="#titre">Titre</a></li>
+        <li><a class="site-nav__pill" href="#about">About</a></li>
+        <li><a class="site-nav__pill" href="#vision">Vision</a></li>
+        <li><a class="site-nav__pill" href="#parcours">Parcours</a></li>
+        <li><a class="site-nav__pill" href="#projets">Projets</a></li>
+        <li><a class="site-nav__pill" href="#cv">CV</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- ------ NAV BAR ------ -->
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#title" class="nav-logo">Title</a></li>
-      <li><a href="#presentation">Presentation</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#journey">Journey</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#future">Future</a></li>
-    </ul>
-  </nav>
-
-  <!-- ------ HERO / TITLE ------ -->
-  <section class="hero" id="title">
-    <h1 class="hero-title">PORTFOLIO</h1>
-    <div class="hero-avatar">
-      <img src="ressources/mk_rond.png" alt="Photo de profil">
-    </div>
-  </section>
-
-  <!-- ------ PRESENTATION / ABOUT ME ------ -->
-  <section class="about" id="presentation">
-    <div class="about-stripe"></div>
-    <div class="about-container">
-      <div class="about-paper">
-
-        <!-- fond pochette (titre + décos sont dedans) -->
-        <img src="ressources/about_me.png" alt="" class="about-bg">
-
-        <!-- contenu par-dessus le fond -->
-        <div class="about-main">
-          <div class="about-block">
-            <div class="about-block-text">
-              <p class="about-text">Bonjour et bienvenue ! Je m'appelle Minh Khua, actuellement informaticienne, et bientôt ingénieure en informatique et entrepreneuse à mon compte.</p>
-              <p class="about-text">Je suis guidée par une puissante motivation dans la vie : celle de la contribution sociétale. Pour moi, l'informatique et les connexions scientifiques en général doivent être utilisées dans le but d'améliorer la condition humaine et l'expérience de vie.</p>
-              <p class="about-text">Portée par cette vision, je suis convaincue que l'utilisation actuelle de l'informatique est erronée et ne correspond pas à ma conception d'un usage sain des technologies numériques.</p>
-              <p class="about-text">C'est pourquoi j'ai décidé de prendre la responsabilité de concrétiser moi-même cette vision. Vous trouverez ci-dessous une présentation de mon plan visant à vous en démontrer la pertinence.</p>
-            </div>
-          </div>
+  <div class="page">
+    <section class="hero" id="titre" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title">PORTFOLIO</h1>
+      <div class="hero__overlap">
+        <div class="hero__band">
+          <p class="hero__tagline">minh khue - 2026</p>
         </div>
-
+        <div class="hero__avatar-wrap">
+          <img class="hero__avatar" src="ressources/hero_mk_rond.png" width="493" height="530" alt="Minh Khue">
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ------ MA VISION (en dehors de la pochette) ------ -->
-    <div class="vision">
-
-      <div class="vision-block">
-        <div class="vision-text">
-          <h3 class="vision-title">MA VISION</h3>
-          <p class="about-text">Depuis mes jeunes années, j'ai toujours eu une forte affection pour les technologies, comme les consoles de jeux Nintendo ou les walkmans. Les utiliser était une expérience inoubliable et de véritables moments de connexion avec mes proches.</p>
-        </div>
-        <div class="vision-cadre vision-cadre-right">
-          <div class="cadre-wrapper">
-            <img src="ressources/cadre1.png" alt="" class="cadre-frame">
-            <div class="cadre-photos">
-              <img src="ressources/photo1.png" alt="" class="cadre-photo cadre-photo-active">
-              <img src="ressources/photo2.png" alt="" class="cadre-photo">
-              <img src="ressources/photo3.png" alt="" class="cadre-photo">
-            </div>
+    <section class="section-about" id="about" aria-labelledby="about-heading">
+      <h2 class="visually-hidden" id="about-heading">About me</h2>
+      <div class="about-stage">
+        <img class="about-stage__art" src="ressources/about_me.png" alt="" decoding="async">
+        <div class="about-stage__overlay">
+          <ul class="about-tags" aria-label="Qualités">
+            <li class="about-tags__item about-tags__item--coral">ambitieuse</li>
+            <li class="about-tags__item about-tags__item--sand">creative</li>
+            <li class="about-tags__item about-tags__item--mauve">collaborative</li>
+            <li class="about-tags__item about-tags__item--mint">flexible</li>
+          </ul>
+          <div class="about-copy">
+            <p>Bonjour et bienvenue ! Je m’appelle Minh Khue, actuellement informaticienne, et bientôt ingénieure en informatique et entrepreneure à mon compte.</p>
+            <p>Je suis guidée par une puissante motivation dans la vie : celle de la contribution sociétale. Pour moi, l’informatique et les domaines scientifiques en général doivent être utilisés dans le but d’améliorer la condition humaine et l’expérience de vie.</p>
+            <p>Portée par cette vision, je suis convaincue que l’utilisation actuelle de l’informatique est erronée et ne correspond pas à ma conception d’un usage sain des technologies numériques.</p>
+            <p>C’est pourquoi j’ai décidé de prendre la responsabilité de concrétiser moi-même cette vision. Vous trouverez ci-dessous une présentation de mon plan visant à vous en démontrer la pertinence.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="vision-block vision-block-reverse">
-        <div class="vision-text">
-          <p class="about-text">Ce sont ces expériences qui ont forgé ma vision de l'informatique et de l'ingénierie technologique : des outils qui contribuent à l'expérience humaine et rendent les moments d'utilisation mémorables. Je suis d'avis que la technologie doit servir l'humain, et non supprimer le plaisir de son utilisation ni les liens humains qui l'accompagnent.</p>
+    <section class="section-vision" id="vision" aria-labelledby="vision-heading">
+      <div class="section-vision__inner">
+        <div class="vision-row">
+          <div class="vision-text">
+            <h2 class="section-title" id="vision-heading">MA VISION</h2>
+            <p>Depuis mes jeunes années, j’ai toujours eu une forte affection pour les technologies, comme les consoles de jeux Nintendo ou les walkmans. Les utiliser était une expérience inoubliable et de véritables moments de connexion avec mes proches.</p>
+          </div>
+          <figure class="polaroid polaroid--tilt-left">
+            <img class="polaroid__img" src="ressources/vision_photo_1.png" alt="Objets et musique">
+          </figure>
         </div>
-        <div class="vision-cadre vision-cadre-left">
-          <div class="cadre-wrapper">
-            <img src="ressources/cadre2.png" alt="" class="cadre-frame">
-            <div class="cadre-photos">
-              <img src="ressources/photo2.png" alt="" class="cadre-photo cadre-photo-active">
-              <img src="ressources/photo3.png" alt="" class="cadre-photo">
-              <img src="ressources/photo1.png" alt="" class="cadre-photo">
+        <div class="vision-row">
+          <figure class="polaroid polaroid--tilt-right">
+            <img class="polaroid__img" src="ressources/vision_photo_2.png" alt="Création numérique">
+          </figure>
+          <div class="vision-text">
+            <p>Ce sont ces expériences qui ont forgé ma vision de l’informatique et de l’ingénierie technologique : des outils qui contribuent à l’expérience humaine et rendent les moments d’utilisation mémorables. Je suis d’avis que la technologie doit servir l’humain, et non supprimer le plaisir de son utilisation ni les liens humains qui l’accompagnent.</p>
+          </div>
+        </div>
+        <div class="vision-row">
+          <div class="vision-text">
+            <p>De ce fait, je considère l’informatique non seulement comme une filière scientifique, mais aussi comme un domaine éthique et humanitaire. Concevoir des outils utiles à tous implique de prendre en compte les contraintes morales qu’ils soulèvent et de trouver un juste équilibre entre l’utilité et les effets potentiellement intrusifs ou dérangeants.</p>
+            <p>À la recherche de cet équilibre, que j’estime être au cœur de mon métier, je me suis tracé un chemin qui me mène vers la réalisation de cette vision et auquel je m’engage pleinement. C’est cette conviction qui m’amène aujourd’hui devant vous.</p>
+          </div>
+          <figure class="polaroid polaroid--tilt-left-alt">
+            <img class="polaroid__img" src="ressources/vision_photo_3.png" alt="Console portable">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-parcours" id="parcours" aria-labelledby="parcours-heading">
+      <div class="section-parcours__inner">
+        <h2 class="section-title section-title--center" id="parcours-heading">Mon parcours</h2>
+        <div class="parcours-roadmap">
+          <div class="parcours-roadmap__track">
+            <svg
+              class="parcours-roadmap__svg"
+              viewBox="0 0 1122 460"
+              fill="none"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <g>
+                <path
+                  d="M1120.5 52V48.5V41.5C1120.5 19.4086 1102.59 1.5 1080.5 1.5H795.559C773.467 1.5 755.559 19.4086 755.559 41.5V418.5C755.559 440.591 737.65 458.5 715.559 458.5H417.378C395.287 458.5 377.378 440.591 377.378 418.5V41.5C377.378 19.4086 359.469 1.5 337.378 1.5H41.5C19.4086 1.5 1.5 19.4086 1.5 41.5V458.5"
+                  stroke="var(--brown)"
+                  stroke-width="3"
+                />
+                <path
+                  d="M1120.5 57.5V216.257V329.5"
+                  stroke="var(--brown)"
+                  stroke-width="3"
+                  stroke-dasharray="6 6"
+                />
+              </g>
+            </svg>
+            <!-- Dot anchored on path (--vx/--vy); pills offset outside the timeline shape -->
+            <div class="parcours-roadmap__dots" aria-hidden="true">
+              <div class="parcours-roadmap__marker" style="--vx: 1.5; --vy: 458.5">
+                <span class="parcours-roadmap__dot"></span>
+              </div>
+              <div class="parcours-roadmap__marker parcours-card--alt parcours-roadmap__marker--outside-top" style="--vx: 938.03; --vy: 1.5">
+                <span class="parcours-roadmap__dot"></span>
+                <h3 class="parcours-card__label"><span class="parcours-card__pill">Alternance</span></h3>
+              </div>
+              <div class="parcours-roadmap__marker parcours-card--but parcours-roadmap__marker--outside-bottom" style="--vx: 566.47; --vy: 458.5">
+                <span class="parcours-roadmap__dot"></span>
+                <h3 class="parcours-card__label"><span class="parcours-card__pill">BUT</span></h3>
+              </div>
+              <div class="parcours-roadmap__marker parcours-card--lycee parcours-roadmap__marker--outside-top" style="--vx: 189.44; --vy: 1.5">
+                <span class="parcours-roadmap__dot"></span>
+                <h3 class="parcours-card__label"><span class="parcours-card__pill">Lycée</span></h3>
+              </div>
+              <div class="parcours-roadmap__marker parcours-card--eng parcours-roadmap__marker--outside-right" style="--vx: 1120.5; --vy: 329.5">
+                <span class="parcours-roadmap__dot"></span>
+                <h3 class="parcours-card__label"><span class="parcours-card__pill">École d’ingénieur</span></h3>
+              </div>
             </div>
+          </div>
+          <div class="parcours-grid">
+            <article class="parcours-card parcours-card--lycee parcours-card--col-lycee">
+              <h3 class="visually-hidden">Lycée</h3>
+              <p>Issue d’un baccalauréat général avec les spécialités mathématiques et sciences numériques, j’ai participé à plusieurs hackathons afin de mettre mes compétences à l’épreuve. C’est également durant cette période que j’ai débuté mon activité en freelance.</p>
+            </article>
+            <article class="parcours-card parcours-card--but parcours-card--col-but">
+              <h3 class="visually-hidden">BUT</h3>
+              <p>Après le lycée, j’ai intégré une école professionnalisante en informatique. Mon objectif était de bénéficier d’un environnement me permettant de travailler sur des projets de manière plus régulière.</p>
+              <p>J’avais également pour projet de rejoindre un cursus en alternance dès ma deuxième année, puis de poursuivre en école d’ingénieur.</p>
+            </article>
+            <article class="parcours-card parcours-card--alt parcours-card--col-alt">
+              <h3 class="visually-hidden">Alternance</h3>
+              <p>Pour mes deuxième et troisième années de BUT informatique, j’ai choisi l’alternance. Au sein d’une entreprise de moins de cinq personnes, j’occupe le rôle de lead développeuse, en charge de la maintenance et du développement des fonctionnalités de leurs outils.</p>
+              <p>Cette expérience m’a permis de découvrir concrètement le monde professionnel de l’informatique.</p>
+            </article>
+            <article class="parcours-card parcours-card--eng parcours-card--col-eng">
+              <h3 class="visually-hidden">École d’ingénieur</h3>
+              <p>La suite de mon parcours repose sur les connaissances que pourra m’apporter une école d’ingénieur. Je souhaite approfondir ma compréhension de l’informatique afin de concevoir de nouvelles solutions à des problèmes concrets.</p>
+            </article>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="vision-block">
-        <div class="vision-text">
-          <p class="about-text">De ce fait, je considère l'informatique non seulement comme une filière scientifique, mais aussi comme un domaine éthique et humanitaire. Concevoir des outils utiles à tous implique de prendre en compte les contraintes morales qui se soulèvent et de trouver un juste équilibre entre l'utilité et les effets potentiellement intrusifs ou dérangeants.</p>
-          <p class="about-text">À la recherche de cet équilibre, que j'estime être au cœur de mon métier, je me suis tracé un chemin qui me mène vers la réalisation de cette vision et auquel je m'engage pleinement. C'est cette conviction qui m'amène aujourd'hui devant vous.</p>
-        </div>
-        <div class="vision-cadre vision-cadre-right">
-          <div class="cadre-wrapper">
-            <img src="ressources/cadre3.png" alt="" class="cadre-frame">
-            <div class="cadre-photos">
-              <img src="ressources/photo3.png" alt="" class="cadre-photo cadre-photo-active">
-              <img src="ressources/photo1.png" alt="" class="cadre-photo">
-              <img src="ressources/photo2.png" alt="" class="cadre-photo">
+    <section class="section-projects" id="projets" aria-labelledby="projects-heading">
+      <div class="section-projects__inner">
+        <h2 class="section-title section-title--center" id="projects-heading">mes projets</h2>
+        <div class="projects-folder-list">
+          <!-- Figma node 139:101 — Freelance -->
+          <article class="project-folder project-folder--freelance">
+            <div class="project-folder__wrap">
+              <img
+                class="project-folder__shape"
+                src="ressources/figma_freelance_folder.svg"
+                alt=""
+                width="1260"
+                height="879"
+                decoding="async"
+              />
+              <h3 class="project-folder__tab project-folder__tab--freelance">Freelance</h3>
+              <div class="project-folder__surface">
+                <div class="project-folder__columns project-folder__columns--copy-media">
+                  <div class="project-folder__text">
+                    <h4 class="project-folder__title">Developpeur et designer en freelance de nuit</h4>
+                    <div class="project-folder__copy">
+                      <p>Pendant mon temps libre, j’aiguise mes compétences en les mettant au service d’autres personnes, notamment des entreprises et des entrepreneurs souhaitant développer leur image de marque.</p>
+                      <p>Je trouve un réel plaisir à accompagner des porteurs de projets et à mettre mon savoir-faire à leur disposition pour les aider à concrétiser leurs idées. C’est cette démarche qui donne du sens à mon travail, tout en me permettant de développer mes compétences et de gagner en expérience.</p>
+                      <p>Mes projets passés portent principalement sur le design et le développement de sites web, ainsi que sur divers travaux de design : conception de logos, réalisation de plaquettes commerciales et création de fiches techniques.</p>
+                    </div>
+                    <a class="project-folder__pill" href="#">Voir un de mes projets ici</a>
+                  </div>
+                  <div class="project-folder__shots">
+                    <img src="ressources/figma_freelance_shot1.png" alt="Aperçu site freelance — bannière restaurant" width="587" height="210" decoding="async" />
+                    <img src="ressources/figma_freelance_shot2.png" alt="Aperçu site freelance — carte menu" width="587" height="461" decoding="async" />
+                  </div>
+                </div>
+                <div class="project-folder__dock project-folder__dock--freelance" aria-hidden="true">
+                  <img class="project-folder__dock-img--css" src="ressources/figma_freelance_icon1.png" alt="" width="45" height="44" decoding="async" />
+                  <img class="project-folder__dock-img--html" src="ressources/figma_freelance_icon2.png" alt="" width="34" height="34" decoding="async" />
+                </div>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <!-- Figma node 139:103 — NEOCASSETTE -->
+          <article class="project-folder project-folder--neo">
+            <div class="project-folder__wrap">
+              <img
+                class="project-folder__shape"
+                src="ressources/figma_neo_folder.svg"
+                alt=""
+                width="1260"
+                height="878"
+                decoding="async"
+              />
+              <h3 class="project-folder__tab project-folder__tab--neo">NEOCASSETTE</h3>
+              <div class="project-folder__surface project-folder__surface--neo">
+                <div class="project-folder__columns project-folder__columns--media-copy">
+                  <div class="project-folder__shots">
+                    <img src="ressources/figma_neo_shot1.png" alt="Interface néocassette — collection d’albums" width="425" height="303" decoding="async" />
+                    <img src="ressources/figma_neo_shot2.png" alt="Prototype physique néocassette" width="425" height="302" decoding="async" />
+                  </div>
+                  <div class="project-folder__text project-folder__text--cream">
+                    <h4 class="project-folder__title project-folder__title--cream">Mon projet de passion : La neocassette</h4>
+                    <div class="project-folder__copy project-folder__copy--cream">
+                      <p>En tant qu’amatrice de musique et passionnée par les walkmans et les appareils analogues, je nourris depuis longtemps l’ambition de faire revivre cette culture musicale aujourd’hui délaissée.</p>
+                      <p>Lorsque l’opportunité s’est présentée sous la forme d’un projet de fin d’année à sujet libre, mon collègue et moi avons décidé de tenter un projet ambitieux : redonner vie à la culture de la cassette.</p>
+                      <p>Dans son intention, ce projet s’inscrit comme une réponse à la domination des plateformes de streaming et des grands labels de l’industrie musicale, qui reposent fortement sur les revenus générés par les artistes. Ce modèle tend à orienter la création vers des musiques formatées, au détriment de leur valeur artistique.</p>
+                      <p>Notre solution propose une plateforme dotée d’un algorithme plus équilibré, favorisant la découverte et l’essor des artistes indépendants, ainsi qu’un produit électronique : la néocassette et le néobaladeur. Il s’agit d’une réinterprétation numérique de la cassette, pensée pour faciliter le partage et la diffusion de la musique.</p>
+                      <p>Enfin, notre approche vise à recréer un véritable espace de communauté et d’échange entre artistes et auditeurs, au cœur de ce qui fait la richesse de la culture musicale : les liens humains créés par le partage.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-folder__dock project-folder__dock--neo" aria-hidden="true">
+                  <img src="ressources/figma_neo_tech1.png" alt="" width="36" height="36" decoding="async" />
+                  <img src="ressources/figma_neo_tech2.png" alt="" width="40" height="35" decoding="async" />
+                  <img src="ressources/figma_neo_tech3.png" alt="" width="39" height="37" decoding="async" />
+                  <img src="ressources/figma_neo_tech4.png" alt="" width="34" height="34" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Figma node 139:102 — IA PHARMA -->
+          <article class="project-folder project-folder--ia">
+            <div class="project-folder__wrap">
+              <img
+                class="project-folder__shape"
+                src="ressources/figma_ia_folder.svg"
+                alt=""
+                width="1260"
+                height="888"
+                decoding="async"
+              />
+              <h3 class="project-folder__tab project-folder__tab--ia">IA PHARMA</h3>
+              <div class="project-folder__surface project-folder__surface--ia">
+                <div class="project-folder__columns project-folder__columns--media-copy">
+                  <div class="project-folder__shots">
+                    <img src="ressources/figma_ia_shot1.png" alt="Outil IA — document source" width="499" height="295" decoding="async" />
+                    <img src="ressources/figma_ia_shot2.png" alt="Outil IA — rapport de cas" width="499" height="362" decoding="async" />
+                  </div>
+                  <div class="project-folder__text">
+                    <h4 class="project-folder__title">Mon projet en entreprise : developpement des outils IA</h4>
+                    <div class="project-folder__copy">
+                      <p>En tant que seule développeuse au sein de mon entreprise d’alternance, je suis chargée, en plus de la maintenance des outils existants, de concevoir et développer de nouvelles solutions pour l’entreprise et ses clients.</p>
+                      <p>Dans une volonté d’orientation vers l’intelligence artificielle, mon entreprise m’a confié la mise en place d’un pipeline IA destiné à servir de base pour l’ensemble des projets liés à ce domaine.</p>
+                      <p>Dans ce cadre, j’ai notamment développé une fonctionnalité d’extraction de CV, remplaçant un outil externe auparavant utilisé par l’entreprise. Cette solution interne a permis de réduire les coûts de manière significative, passant d’environ 600 € par an à 25 €.</p>
+                      <p>Actuellement, je travaille sur un outil d’intelligence artificielle destiné à une entreprise de pharmacovigilance. Cet outil permet aux employés en charge du traitement des cas de prendre des décisions plus rapidement et de limiter les erreurs de saisie, tout en conservant un contrôle total sur les données. L’IA y est utilisée comme un levier d’aide à la décision et d’efficacité, et non comme un substitut aux professionnels en place.</p>
+                      <p>Au cours de ces projets, j’ai appris à intégrer et exploiter des API d’IA, à travailler avec des MCP, ainsi qu’à configurer et ajuster des processus d’entraînement de modèles.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-folder__dock project-folder__dock--ia" aria-hidden="true">
+                  <img class="project-folder__dock-img--html" src="ressources/figma_ia_html.png" alt="" width="34" height="34" decoding="async" />
+                  <img class="project-folder__dock-img--css" src="ressources/figma_ia_css.png" alt="" width="45" height="44" decoding="async" />
+                  <img src="ressources/figma_ia_tech1.png" alt="" width="44" height="44" decoding="async" />
+                  <img src="ressources/figma_ia_tech2.png" alt="" width="58" height="31" decoding="async" />
+                  <img src="ressources/figma_ia_tech3.png" alt="" width="50" height="50" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
+    <footer class="site-footer" id="cv">
+      <p class="site-footer__headline">mon parcours ne s’arrete pas ici !</p>
+      <a class="site-footer__cta" href="#">Télécharger mon CV</a>
+    </footer>
+  </div>
   <script>
-    // ------ ANIMATION POLAROID DEVELOPMENT ------
-    document.querySelectorAll('.cadre-photos').forEach(container => {
-      const photos = container.querySelectorAll('.cadre-photo');
-      let current = 0;
+    (function () {
+      var sections = document.querySelectorAll("#titre, #about, #vision, #parcours, #projets, #cv");
+      var links = document.querySelectorAll(".site-nav__pill");
+      if (!sections.length || !links.length) return;
 
-      setInterval(() => {
-        // photo actuelle disparaît
-        photos[current].classList.remove('cadre-photo-active');
+      function headerTriggerY() {
+        var h = document.querySelector(".site-header");
+        var header = h && h.offsetHeight ? h.offsetHeight : 72;
+        /* Extra “lead” so the pill switches before the heading sits under the bar */
+        var lead = Math.min(160, Math.max(52, window.innerHeight * 0.16));
+        return header + lead;
+      }
 
-        // passe à la suivante qui va se "développer"
-        current = (current + 1) % photos.length;
-        photos[current].classList.add('cadre-photo-active');
-      }, 4000); // 4s pour laisser le temps au développement (3s) + pause
-    });
+      function setActive(id) {
+        links.forEach(function (a) {
+          var on = a.getAttribute("href") === "#" + id;
+          a.classList.toggle("site-nav__pill--active", on);
+          if (on) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      function update() {
+        var marker = window.scrollY + headerTriggerY();
+        var current = sections[0].id;
+        sections.forEach(function (sec) {
+          var top = sec.getBoundingClientRect().top + window.scrollY;
+          if (top <= marker) current = sec.id;
+        });
+        setActive(current);
+      }
+
+      function onScroll() {
+        update();
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      window.addEventListener("hashchange", update);
+      window.addEventListener("load", update);
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", update);
+      } else {
+        update();
+      }
+    })();
   </script>
-
 </body>
 </html>
