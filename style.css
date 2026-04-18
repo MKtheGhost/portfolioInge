@@ -483,12 +483,27 @@ img {
 .section-parcours {
   position: relative;
   background: var(--parcours-bg);
-  padding: 3rem 1.25rem 4rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  padding-right: 1.25rem;
+  padding-left: clamp(0.35rem, 1.2vw, 1rem);
 }
 
 .section-parcours__inner {
+  width: 100%;
   max-width: 70rem;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  /* Labels (e.g. École d’ingénieur) extend past the SVG — do not clip */
+  overflow-x: visible;
+}
+
+/* Wrapper measured by JS so timeline + labels + grid scale to fit the viewport */
+.parcours-scale {
+  width: 100%;
+  transform-origin: top center;
+  margin-inline: auto;
 }
 
 /* Figma-style roadmap: SVG paths from timeline_graphic, layered behind the 2×2 cards */
@@ -591,12 +606,25 @@ img {
 
 @media (min-width: 41rem) {
   .parcours-roadmap {
-    --parcours-roadmap-pad-inline: clamp(0.25rem, 1.5vw, 1.25rem);
+    /* Extra end padding so “École d’ingénieur” (outside-right) is not clipped */
+    --parcours-pad-start: clamp(0, 0.9vw, 0.65rem);
+    --parcours-pad-end: clamp(1.35rem, 6.5vw, 4.5rem);
     min-height: clamp(17rem, 42vw, 26rem);
-    padding-inline: var(--parcours-roadmap-pad-inline);
+    padding-inline: var(--parcours-pad-start) var(--parcours-pad-end);
     /* Dot x = 5% + 90% * (vx / 1122); column centers match Lycée / BUT / Alternance anchors */
     container-type: inline-size;
     container-name: parcours;
+  }
+
+  /* Right-edge dot: label extends right of path — cap width + wrap so it stays in padded area */
+  .parcours-roadmap__marker.parcours-card--eng .parcours-card__label {
+    max-width: min(9.5rem, 34vw);
+  }
+
+  @supports (width: 1cqw) {
+    .parcours-roadmap__marker.parcours-card--eng .parcours-card__label {
+      max-width: min(9.5rem, 36cqw);
+    }
   }
 
   .parcours-roadmap__track {
@@ -614,8 +642,8 @@ img {
 
   .parcours-grid {
     /* Same horizontal span as the track % base (padding box) so text centers line up with dots */
-    margin-inline: calc(-1 * var(--parcours-roadmap-pad-inline));
-    width: calc(100% + 2 * var(--parcours-roadmap-pad-inline));
+    margin-inline: calc(-1 * var(--parcours-pad-start)) calc(-1 * var(--parcours-pad-end));
+    width: calc(100% + var(--parcours-pad-start) + var(--parcours-pad-end));
     max-width: none;
     box-sizing: border-box;
     padding-block: clamp(0.65rem, 2vw, 1.5rem) clamp(0.85rem, 2.5vw, 2rem);
@@ -701,8 +729,8 @@ img {
 
 .parcours-card {
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.8125rem, 0.72rem + 0.55vw, 1rem);
+  line-height: 1.65;
   letter-spacing: -0.03em;
   text-align: center;
   color: var(--ink);
@@ -715,9 +743,9 @@ img {
 
 .parcours-card__pill {
   display: inline-block;
-  padding: 0.35rem 1.25rem;
+  padding: 0.3rem clamp(0.75rem, 2.5vw, 1.25rem);
   border-radius: 1.1875rem;
-  font-size: 1.25rem;
+  font-size: clamp(0.875rem, 0.78rem + 0.85vw, 1.25rem);
   font-weight: 600;
   letter-spacing: -0.03em;
 }

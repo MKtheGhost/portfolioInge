@@ -170,45 +170,7 @@
         <h2 class="section-title section-title--center" id="projects-heading">mes projets</h2>
         <div class="projects-deck-wrap">
         <div class="projects-deck" aria-live="polite">
-          <!-- Figma node 139:101 — Freelance -->
-          <article class="project-folder project-folder--freelance">
-            <div class="project-folder__wrap">
-              <div class="project-folder__shape-shell" aria-hidden="true">
-                <img
-                  class="project-folder__shape"
-                  src="ressources/figma_freelance_folder.svg"
-                  alt=""
-                  width="1260"
-                  height="879"
-                  decoding="async"
-                />
-              </div>
-              <h3 class="project-folder__tab project-folder__tab--freelance">Freelance</h3>
-              <div class="project-folder__surface">
-                <div class="project-folder__columns project-folder__columns--copy-media">
-                  <div class="project-folder__text">
-                    <h4 class="project-folder__title">Developpeur et designer en freelance de nuit</h4>
-                    <div class="project-folder__copy">
-                      <p>Pendant mon temps libre, j’aiguise mes compétences en les mettant au service d’autres personnes, notamment des entreprises et des entrepreneurs souhaitant développer leur image de marque.</p>
-                      <p>Je trouve un réel plaisir à accompagner des porteurs de projets et à mettre mon savoir-faire à leur disposition pour les aider à concrétiser leurs idées. C’est cette démarche qui donne du sens à mon travail, tout en me permettant de développer mes compétences et de gagner en expérience.</p>
-                      <p>Mes projets passés portent principalement sur le design et le développement de sites web, ainsi que sur divers travaux de design : conception de logos, réalisation de plaquettes commerciales et création de fiches techniques.</p>
-                    </div>
-                    <a class="project-folder__pill" href="#">Voir un de mes projets ici</a>
-                  </div>
-                  <div class="project-folder__shots">
-                    <img src="ressources/figma_freelance_shot1.png" alt="Aperçu site freelance — bannière restaurant" width="587" height="210" decoding="async" />
-                    <img src="ressources/figma_freelance_shot2.png" alt="Aperçu site freelance — carte menu" width="587" height="461" decoding="async" />
-                  </div>
-                </div>
-                <div class="project-folder__dock project-folder__dock--freelance" aria-hidden="true">
-                  <img class="project-folder__dock-img--css" src="ressources/figma_freelance_icon1.png" alt="" width="45" height="44" decoding="async" />
-                  <img class="project-folder__dock-img--html" src="ressources/figma_freelance_icon2.png" alt="" width="34" height="34" decoding="async" />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Figma node 139:103 — NEOCASSETTE -->
+          <!-- Figma node 139:103 — NEOCASSETTE (first in deck = default on load) -->
           <article class="project-folder project-folder--neo">
             <div class="project-folder__wrap">
               <div class="project-folder__shape-shell" aria-hidden="true">
@@ -244,6 +206,49 @@
                   <img src="ressources/figma_neo_tech2.png" alt="" width="40" height="35" decoding="async" />
                   <img src="ressources/figma_neo_tech3.png" alt="" width="39" height="37" decoding="async" />
                   <img src="ressources/figma_neo_tech4.png" alt="" width="34" height="34" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Figma node 139:101 — Freelance -->
+          <article class="project-folder project-folder--freelance">
+            <div class="project-folder__wrap">
+              <div class="project-folder__shape-shell" aria-hidden="true">
+                <img
+                  class="project-folder__shape"
+                  src="ressources/figma_freelance_folder.svg"
+                  alt=""
+                  width="1260"
+                  height="879"
+                  decoding="async"
+                />
+              </div>
+              <h3 class="project-folder__tab project-folder__tab--freelance">Freelance</h3>
+              <div class="project-folder__surface">
+                <div class="project-folder__columns project-folder__columns--copy-media">
+                  <div class="project-folder__text">
+                    <h4 class="project-folder__title">Developpeur et designer en freelance de nuit</h4>
+                    <div class="project-folder__copy">
+                      <p>Pendant mon temps libre, j’aiguise mes compétences en les mettant au service d’autres personnes, notamment des entreprises et des entrepreneurs souhaitant développer leur image de marque.</p>
+                      <p>Je trouve un réel plaisir à accompagner des porteurs de projets et à mettre mon savoir-faire à leur disposition pour les aider à concrétiser leurs idées. C’est cette démarche qui donne du sens à mon travail, tout en me permettant de développer mes compétences et de gagner en expérience.</p>
+                      <p>Mes projets passés portent principalement sur le design et le développement de sites web, ainsi que sur divers travaux de design : conception de logos, réalisation de plaquettes commerciales et création de fiches techniques.</p>
+                    </div>
+                    <a
+                      class="project-folder__pill"
+                      href="https://comviet.fr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Voir un de mes projets ici</a>
+                  </div>
+                  <div class="project-folder__shots">
+                    <img src="ressources/figma_freelance_shot1.png" alt="Aperçu site freelance — bannière restaurant" width="587" height="210" decoding="async" />
+                    <img src="ressources/figma_freelance_shot2.png" alt="Aperçu site freelance — carte menu" width="587" height="461" decoding="async" />
+                  </div>
+                </div>
+                <div class="project-folder__dock project-folder__dock--freelance" aria-hidden="true">
+                  <img class="project-folder__dock-img--css" src="ressources/figma_freelance_icon1.png" alt="" width="45" height="44" decoding="async" />
+                  <img class="project-folder__dock-img--html" src="ressources/figma_freelance_icon2.png" alt="" width="34" height="34" decoding="async" />
                 </div>
               </div>
             </div>
@@ -309,7 +314,12 @@
 
     <footer class="site-footer" id="cv">
       <p class="site-footer__headline">mon parcours ne s’arrete pas ici !</p>
-      <a class="site-footer__cta" href="#">Télécharger mon CV</a>
+      <a
+        class="site-footer__cta"
+        href="docs/CV_alternance_2026.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Télécharger mon CV</a>
     </footer>
   </div>
   <script>
@@ -326,6 +336,109 @@
       }, { threshold: 0.18 });
 
       revealTargets.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* Scale Parcours so timeline, pills, and body copy (incl. abs-positioned labels) fit the screen */
+    (function () {
+      var root = document.querySelector(".parcours-scale");
+      var inner = document.querySelector(".section-parcours__inner");
+      if (!root || !inner) return;
+
+      var mqSerpentine = window.matchMedia("(min-width: 41rem)");
+      var rafId = 0;
+
+      function headerReserve() {
+        var st = getComputedStyle(document.documentElement);
+        var raw = st.getPropertyValue("--site-header-offset").trim();
+        var n = parseFloat(raw);
+        return Number.isFinite(n) ? n : 72;
+      }
+
+      /* scrollWidth often ignores abs/fixed overflow — union all descendant boxes */
+      function measureVisualSize(el) {
+        var rr = el.getBoundingClientRect();
+        var minL = rr.left;
+        var maxR = rr.right;
+        var minT = rr.top;
+        var maxB = rr.bottom;
+        var nodes = el.getElementsByTagName("*");
+        for (var i = 0; i < nodes.length; i++) {
+          var r = nodes[i].getBoundingClientRect();
+          if (r.width < 0.5 && r.height < 0.5) continue;
+          minL = Math.min(minL, r.left);
+          maxR = Math.max(maxR, r.right);
+          minT = Math.min(minT, r.top);
+          maxB = Math.max(maxB, r.bottom);
+        }
+        var hullW = maxR - minL;
+        var hullH = maxB - minT;
+        return {
+          w: Math.max(el.scrollWidth, hullW),
+          h: Math.max(el.scrollHeight, hullH),
+        };
+      }
+
+      function applyFit() {
+        rafId = 0;
+        root.style.zoom = "";
+        root.style.transform = "";
+        root.style.width = "";
+        root.style.maxWidth = "";
+
+        var padX = 16;
+        var padY = 24;
+        var innerW = inner.getBoundingClientRect().width;
+        var docW = document.documentElement.clientWidth;
+        var maxW = Math.max(220, Math.min(innerW, docW) - padX * 2);
+
+        var maxH = Math.max(300, window.innerHeight - headerReserve() - padY * 2);
+        if (!mqSerpentine.matches) {
+          maxH = 1e9;
+        }
+
+        var m = measureVisualSize(root);
+        var sw = m.w;
+        var sh = m.h;
+        if (!sw || !sh) return;
+
+        var sx = maxW / sw;
+        var sy = sh > maxH ? maxH / sh : 1;
+        var s = Math.min(1, sx, sy);
+
+        if (s >= 0.997) {
+          return;
+        }
+
+        root.style.transformOrigin = "top center";
+        root.style.zoom = String(s);
+      }
+
+      function scheduleFit() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(function () {
+          rafId = requestAnimationFrame(function () {
+            rafId = 0;
+            applyFit();
+          });
+        });
+      }
+
+      if (mqSerpentine.addEventListener) {
+        mqSerpentine.addEventListener("change", scheduleFit);
+      } else if (mqSerpentine.addListener) {
+        mqSerpentine.addListener(scheduleFit);
+      }
+      window.addEventListener("resize", scheduleFit);
+
+      var ro = new ResizeObserver(scheduleFit);
+      ro.observe(inner);
+      ro.observe(root);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(scheduleFit);
+      }
+      window.addEventListener("load", scheduleFit);
+      scheduleFit();
     })();
 
     (function () {
