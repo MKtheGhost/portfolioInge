@@ -771,7 +771,7 @@ img {
 }
 
 .parcours-grid .parcours-card p {
-  max-width: min(94%, 42ch);
+  max-width: min(74%, 42ch);
   margin-inline: auto;
 }
 
